@@ -34,3 +34,61 @@
  */
 
 // Write your JavaScript here
+function changeElementText(element, answer) {
+    $(element).text(answer);
+}
+
+function reverseWords(words) {
+    let start = 0;
+    let end = words.length - 1;
+
+    if(words.length == 0) {
+        return words;
+    }
+
+    while (start < end) {
+        let temp = words[start];
+        words[start] = words[end];
+        words[end] = temp;
+
+        start++;
+        end--;
+    }
+
+    return words;
+}
+
+function formatText(wordsArray) {
+    let result = "";
+    for(let i = 0; i < wordsArray.length; i++) {
+        let wordArray = wordsArray[i];
+        let currentLine = wordArray.join(" ");
+
+        if(i > 0) {
+            result += " ";
+        }
+        result += currentLine;
+    }
+    return result;
+}
+
+function getWordCount(words) {
+    let total = 0;
+
+    for(let i = 0; i < words.length; i++) {
+        total += words[i].length;
+    }
+    return total;
+}
+
+function displayCorrectText(words) {
+    let formattedText = formatText(words);
+    changeElementText("#advertisingText", formattedText);
+
+    //reverse 2nd line
+    let reversedLineOfWords = words[1];
+    reverseWords(reversedLineOfWords);
+
+    changeElementText("#resultText", formatText(words));
+    changeElementText("#wordCount", getWordCount(words));
+}

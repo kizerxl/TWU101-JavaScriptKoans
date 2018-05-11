@@ -10,8 +10,10 @@
  http://bit.ly/oz3969
 
  Problem statement:
- The Indian government traffic jam analysis department has done some research and has found that traffic jams will occur
- when the number of auto rickshaws on the road is more than 40. Unless it is after 8pm in which case there are no
+ The Indian government traffic jam analysis department has done
+ some research and has found that traffic jams will occur
+ when the number of auto rickshaws on the road is more than
+ 40. Unless it is after 8pm in which case there are no
  traffic jams because the daytime traffic has finished.
 
  Examples:
@@ -39,11 +41,16 @@ function changeElementText(element, answer) {
 }
 
 function isTrafficJam(numberOfAutoRickshaws, isAfterEightPm) {
-    changeElementText("#numberOfRickshaws", "some");
-    changeElementText("#beforeOrAfter", "before or after");
+    changeElementText("#numberOfRickshaws", numberOfAutoRickshaws);
+    changeElementText("#beforeOrAfter", isAfterEightPm ? "before ": "after ");
     var answer = "maybe a";
 
     // write some code here!
+    if(numberOfAutoRickshaws > 40 && isAfterEightPm) {
+        answer = " a";
+    } else {
+        answer = " no";
+    }
 
     changeElementText("#aOrNo", answer);
 }

@@ -11,8 +11,10 @@
  http://en.wikipedia.org/wiki/Auto_rickshaw#India
 
  Problem statement:
- Write a program that will compute the auto fare: it should take as arguments the distance traveled in kilometers (d),
- the waiting time in minutes (w), and whether it is night time (n). The assumed auto fare formula is:
+ Write a program that will compute the auto fare:
+ it should take as arguments the distance traveled in kilometers (d),
+ the waiting time in minutes (w), and whether it is night time (n).
+ The assumed auto fare formula is:
  20 + 8 * (d-1) + 4 * w
  Add 50%, if n=true
 
@@ -39,12 +41,14 @@ function changeElementText(element, answer) {
 }
 
 function fareForRide(distanceTraveled, timeWaiting, isNight) {
-    changeElementText("#distanceTraveled", "some");
-    changeElementText("#timeWaiting", "some");
-    changeElementText("#nightOrDay", "night or day");
+    changeElementText("#distanceTraveled", distanceTraveled);
+    changeElementText("#timeWaiting", timeWaiting);
+    changeElementText("#nightOrDay", isNight? "night ": "day ");
     var fare = "some amount";
 
     // write some code here!
+    let fareCalculation = (20 + 8 * (distanceTraveled - 1) + 4 * timeWaiting);
+    fare = String(isNight ? fareCalculation + fareCalculation * 0.50 : fareCalculation);
 
     changeElementText("#fare", fare);
 }

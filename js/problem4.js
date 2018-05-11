@@ -27,3 +27,18 @@
 */
 
 // Write your JavaScript here
+function changeElementText(element, answer) {
+    $(element).text(answer);
+}
+
+function totalRs(notes) {
+    changeElementText("#notes", notes);
+    var total = 0;
+
+    // write some code here!
+    for(let i = 0; i < notes.length; i++) {
+        total += notes[i];
+    }
+
+    changeElementText("#totalRs", total);
+}
